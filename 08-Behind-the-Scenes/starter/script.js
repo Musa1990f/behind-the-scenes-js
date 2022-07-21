@@ -64,18 +64,54 @@
 
 // this.keyword how it works
 
-const jonas = {
-  year : 2037,
-  calcAge : function(){
-    console.log(2037 - this.year);
-  }
-};
-jonas.calcAge();
+// const jonas = {
+//   year : 2037,
+//   calcAge : function(){
+//     console.log(2037 - this.year);
+//   }
+// };
+// jonas.calcAge();
 
-// borrowing calcAge from jonas object
+// // borrowing calcAge from jonas object
 
-const matilda = {
-  year: 2017,
+// const matilda = {
+//   year: 2017,
+// };
+// matilda.calcAge = jonas.calcAge;
+// matilda.calcAge();
+
+// PRIMITIVE vs Objects in practice
+
+let lastName = 'william';
+let oldLastName = lastName;
+lastName = 'Davies';
+console.log(lastName, oldLastName);
+
+// Reference objects
+const jessica = {
+  firstName : 'Jessica',
+  lastName: 'Williams',
+  age : 27,
 };
-matilda.calcAge = jonas.calcAge;
-matilda.calcAge();
+
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davies';
+console.log('Before marriage:', jessica);
+console.log('after marriage:', marriedJessica);
+
+// Copying objects
+const jessica2 = {
+  firstName : 'Jessica',
+  lastName: 'Williams',
+  age : 27,
+  family: ['Bob','Alice']
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davies';
+
+
+jessicaCopy.family.push('Mary','james');
+
+console.log('Before marriage:', jessica2);
+console.log('after marriage:', jessicaCopy);
